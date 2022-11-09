@@ -1,0 +1,31 @@
+{
+  "name": "com.mub.node.first",
+  "version": "0.0.1",
+  "description": "first node project for me ",
+  "main": "index.js",
+  "scripts": {
+    "prettier": "prettier --config .prettierrc src/**/*.js --write",
+    "lint": "eslint src/**/*.js",
+    "build": "npx tsc"
+  },
+  "author": "Ahmed.mubarak2024@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "eslint-prettier-init": "^0.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^10.17.46",
+    "@typescript-eslint/eslint-plugin": "^4.15.2",
+    "@typescript-eslint/parser": "^4.9.0",
+    "eslint": "^5.0.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "prettier": "^2.7.1",
+    "ts-node": "^8.10.2",
+    "typescript": "^4.8.4"
+  }
+}
