@@ -181,3 +181,77 @@ interface Student{
 let testReadonly :Student ={name:"Ahmed", age:12,enrolled:false,gender:"Male"}
 //testReadonly.gender = "" //error
 doToStudent(testReadonly)
+
+//Type Aliases
+type StudentType = { 
+    name: string; 
+    age: number;
+    enrolled: boolean;
+  };
+  
+  let newStudentTYPE:StudentType = {name: 'Maria', age: 10, enrolled: true};
+
+  type unionTypeOfStringNumber = (string|number)
+  // define our tuple
+let ourTuple: [number, boolean, string];
+type tupleType = [number,boolean,string]
+
+//Classes
+class StudentClass {
+    protected studentGrade: number;
+    private studentId: number;
+    public constructor(grade: number, id: number) {
+      this.studentGrade = grade;
+      this.studentId = id;
+    }
+    id(){
+      return this.studentId;
+    }
+  }
+  
+  class Graduate extends StudentClass {
+    studentMajor: string; // public by default
+    public constructor(grade: number, id: number, major: string ){
+        super(grade, id);
+        //this.studentId = id; // TypeScript Error: Property 'studentId' is private and only accessible within class 'Student'.
+        this.studentGrade = grade; // Accessable because parent is protected
+        this.studentMajor = major;
+    }
+  }
+  
+  const myStudent = new Graduate(3, 1234, 'computer science');
+  
+  console.log(myStudent.id()); //  prints 1234
+  //myStudent.studentId = 1235; // TypeScript Error: Property 'studentId' is private and only accessible within class 'Student'.
+  console.log(myStudent.id()); // prints 1235
+
+ /* Factory Functions
+If Factory Functions remain your preferred way of creating JavaScript objects, they are still useable within TypeScript. To create a factory function with explicit typing, create an interface with the object's properties and methods and use the interface as the return type for the function.
+*/
+interface StudentTestFactory {
+  name: string;
+  age: number
+  greet(): void;
+}
+
+const StudentTestFactory = (name: string, age: number): StudentTestFactory =>{ 
+  const greet = ():void => console.log('hello'); 
+  return { name, age, greet };
+}
+
+const studentTestFactory:StudentTestFactory = StudentTestFactory('Hana', 16);
+
+
+// Typed Function
+const getItemTyped = (arr: number[]):number => {
+  return arr[1];
+}
+
+// Generic Function
+const getItemGeneric = <T>(arr: T[]):T => {
+  return arr[1];
+};
+
+console.log(getItemTyped([1,2,3,3,4]))
+console.log(typeof getItemGeneric([1,2,3,3,4]))
+console.log(typeof getItemGeneric(["a","b","c"]))
