@@ -1,4 +1,3 @@
-import { resolve } from "path";
 
 
 const step1  = ():Promise<number> =>{
@@ -46,6 +45,10 @@ step1()
  }).catch(()=>{
      console.log("error")
  })
+
+ export{
+     step1,step2,step3
+ }
 
 
  
