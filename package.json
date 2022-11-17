@@ -9,7 +9,8 @@
     "build": "npx tsc",
     "jasmine": "jasmine",
     "test": "npm run build && npm run jasmine ",
-    "testS": "npm run test --silent"
+    "testS": "npm run test --silent",
+    "start": "nodemon src/server/runLocalServer.ts"
   },
   "author": "Ahmed.mubarak2024@gmail.com",
   "license": "ISC",
@@ -22,7 +23,8 @@
     "jasmine": "^3.6.4",
     "jasmine-es6-promise-matchers": "^2.1.2",
     "jasmine-spec-reporter": "^6.0.0",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "nodemon": "^2.0.20"
   },
   "devDependencies": {
     "@types/jasmine": "^3.6.3",
